@@ -77,9 +77,7 @@ namespace PokerGame.Tests
             game.AgregarJugador(new Jugador { Nombre = "Jugador 1" });
             game.AgregarJugador(new Jugador { Nombre = "Jugador 2" });
             game.AgregarJugador(new Jugador { Nombre = "Jugador 3" });
-            // game.Jugar();
-            game.Barajear();
-            /// game.ValidarCartas();
+            game.Jugar();
             Assert.DoesNotThrow(() => game.Jugar());
         }
 

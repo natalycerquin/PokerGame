@@ -83,6 +83,8 @@ namespace PokerGame
             }
 
             Barajear();
+
+
             ValidarCartas();
         }
     }
