@@ -77,8 +77,9 @@ namespace PokerGame.Tests
             game.AgregarJugador(new Jugador { Nombre = "Jugador 1" });
             game.AgregarJugador(new Jugador { Nombre = "Jugador 2" });
             game.AgregarJugador(new Jugador { Nombre = "Jugador 3" });
-            game.Barajear();
-            game.ValidarCartas();
+            game.Jugar();
+            // game.Barajear();
+            /// game.ValidarCartas();
             Assert.DoesNotThrow(() => game.Jugar());
         }
 
@@ -91,8 +92,47 @@ namespace PokerGame.Tests
             game.AgregarJugador(new Jugador { Nombre = "Jugador 3" });
             game.Barajear();
             game.ValidarCartas();
-            var totalDiamantesgame.ContarCartas();
-            Assert.DoesNotThrow(() => game.Jugar());
+            var totalCorazones = game.ContarCartas("Corazones");
+            Assert.AreEqual(13, totalCorazones);
+        }
+
+        [Test]
+        public void Caso09()
+        {
+            var game = new PokerGame();
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 1" });
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 2" });
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 3" });
+            game.Barajear();
+            game.ValidarCartas();
+            var totalDiamantes = game.ContarCartas("Diamantes");
+            Assert.AreEqual(13, totalDiamantes);
+        }
+
+        [Test]
+        public void Caso10()
+        {
+            var game = new PokerGame();
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 1" });
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 2" });
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 3" });
+            game.Barajear();
+            game.ValidarCartas();
+            var totalEspadas = game.ContarCartas("Espadas");
+            Assert.AreEqual(13, totalEspadas);
+        }
+
+        [Test]
+        public void Caso11()
+        {
+            var game = new PokerGame();
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 1" });
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 2" });
+            game.AgregarJugador(new Jugador { Nombre = "Jugador 3" });
+            game.Barajear();
+            game.ValidarCartas();
+            var totalTrebol = game.ContarCartas("Trebol");
+            Assert.AreEqual(13, totalTrebol);
         }
     }
 }
